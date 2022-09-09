@@ -2,13 +2,10 @@ from django.urls import path, include
 from .import views
 from rest_framework import routers
 from .views import*
-router = routers.DefaultRouter()
 
-router.register("Community-operations", views.CommunityViewDashboard)
 urlpatterns = [
-  
-  
-     path("", include(router.urls)),
-       
+    path('community/', CommunityViewDashboard.as_view({"get": "list", "post": "create", "delete": "destroy","update": "update"}), name='basic_view'),
+    path('community/update/<int:pk>/', UpdateCommunityViewDashboard.as_view(), name='basic_view'),
+
      
 ]
