@@ -35,7 +35,7 @@ class CommunityTable(models.Model):
     Name_suggestion = models.CharField(max_length=100)
     Other = models.JSONField()
     def __str__(self):
-        return self.id
+        return str(self.id) 
 
     
     

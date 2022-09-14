@@ -1,4 +1,4 @@
-from genericpath import commonprefix
+
 from django.shortcuts import render
 from .models import *
 from .serializer import *
@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.viewsets import ModelViewSet
+import requests
 # Create your views here.
 
 class CommunityViewDashboard(ModelViewSet):
@@ -42,4 +43,3 @@ class UpdateCommunityViewDashboard(APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
- 
