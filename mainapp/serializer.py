@@ -4,5 +4,10 @@ from mainapp.models import*
 
 class CommunitySerlizer(serializers.ModelSerializer):
     class Meta:
-        model = CommunityTable
+        model = job
+        fields = "__all__"
+
+class JobApplicationSerlizer(serializers.ModelSerializer):
+    class Meta:
+        model = JobApplication
         fields = "__all__"

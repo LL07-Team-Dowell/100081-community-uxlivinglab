@@ -3,5 +3,9 @@ from .models import*
 # Register your models here.
 admin.site.register(
     [
-        CommunityTable
+        job
+    ])
+admin.site.register(
+    [
+        JobApplication
     ])
