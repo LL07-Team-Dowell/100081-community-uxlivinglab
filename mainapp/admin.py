@@ -3,7 +3,15 @@ from .models import*
 # Register your models here.
 admin.site.register(
     [
-        job
+        community
+    ])
+admin.site.register(
+    [
+        Country
+    ])
+admin.site.register(
+    [
+        Job
     ])
 admin.site.register(
     [
