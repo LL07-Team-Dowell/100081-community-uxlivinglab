@@ -3,5 +3,17 @@ from .models import*
 # Register your models here.
 admin.site.register(
     [
-        CommunityTable
+        community
+    ])
+admin.site.register(
+    [
+        Country
+    ])
+admin.site.register(
+    [
+        Job
+    ])
+admin.site.register(
+    [
+        JobApplication
     ])
