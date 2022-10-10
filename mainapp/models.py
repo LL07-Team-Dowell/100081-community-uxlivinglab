@@ -49,7 +49,7 @@ class Country(models.Model):
 
 
 class Job(models.Model):
-    country = models.ForeignKey(Country, on_delete=models.CASCADE, null = True)
+    country = models.ForeignKey(Country, related_name='job', on_delete=models.CASCADE, null = True)
     title = models.CharField(max_length=100, null=False)
     description = models.TextField(null=False)
     skills = models.CharField(max_length=500, null=False, default="None")

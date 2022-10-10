@@ -46,13 +46,13 @@ class UpdateCommunityViewDashboard(APIView):
 class CountryView(ModelViewSet):
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
-    parser_classes = (FormParser, MultiPartParser)
+    # parser_classes = (FormParser, MultiPartParser)
 
 
 class UpdateCountryView(APIView):
     # permission_classes = (IsAuthenticated,)
     serializer_class = CountrySerializer
-    parser_classes = (FormParser, MultiPartParser)
+    # parser_classes = (FormParser, MultiPartParser)
 
     
 

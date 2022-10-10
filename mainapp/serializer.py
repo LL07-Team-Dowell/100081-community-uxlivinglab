@@ -7,15 +7,25 @@ class CommunitySerializer(serializers.ModelSerializer):
         model = community
         fields = "__all__"
 
-class CountrySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Country
-        fields = "__all__"
 
 class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
         fields = "__all__"
+
+class CountrySerializer(serializers.ModelSerializer):
+    job = JobSerializer(many=True)
+    class Meta:
+        model = Country
+        fields = ['Country_name', 'job']
+
+    def create(self, validated_data):
+        jobs_data = validated_data.pop('job')
+        country = Country.objects.create(**validated_data)
+        for job_data in jobs_data:
+            Job.objects.create(country=country, **job_data)
+        return country
+
 
 
 
