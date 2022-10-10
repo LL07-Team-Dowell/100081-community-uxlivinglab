@@ -73,6 +73,7 @@ class Job(models.Model):
 class JobApplication(models.Model):
     applicant = models.CharField(max_length=100, null=False)
     job = models.ForeignKey(Job, on_delete=models.CASCADE, null=False)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, null = True)
     status = models.CharField(max_length=132, null=True, default="Pending")
     Age = models.CharField(max_length=100, null= True)
     Gender_choices = (
