@@ -43,6 +43,7 @@ class community(models.Model):
 
 class Country(models.Model):
     Country_name = models.CharField(max_length=100, null=True)
+    city = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return self.Country_name
