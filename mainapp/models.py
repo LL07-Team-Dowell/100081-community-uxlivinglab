@@ -1,3 +1,4 @@
+from email.policy import default
 from unittest.util import _MAX_LENGTH
 from django.db import models
 from django_countries.fields import CountryField
@@ -73,8 +74,8 @@ class Job(models.Model):
 
 class JobApplication(models.Model):
     applicant = models.CharField(max_length=100, null=False)
-    job = models.ForeignKey(Job, on_delete=models.CASCADE, null=False)
-    country = models.ForeignKey(Country, on_delete=models.CASCADE, null = True)
+    job = models.ForeignKey(Job, related_name='jobapplication',  on_delete=models.CASCADE, null=False)
+    # country = models.ForeignKey(Country, related_name='country', on_delete=models.CASCADE, null = True)
     status = models.CharField(max_length=132, null=True, default="Pending")
     Age = models.CharField(max_length=100, null= True)
     Gender_choices = (
@@ -116,3 +117,16 @@ class JobApplication(models.Model):
         return f'{self.job}-{self.applicant}'
 
 
+class jobCatagaries(models.Model):
+    category_name = models.CharField(max_length=50, null = True)
+    is_active = models.BooleanField(default = False, null = True)
+
+
+class catagaries_form(models.Model):
+    email = models.EmailField(unique=True)
+    Individual_name = models.CharField(max_length=200)
+    Individual_address = models.CharField(max_length=200)
+    city = models.CharField(max_length=200)
+    state = models.CharField(max_length=200)
+    country = models.CharField(max_length=200)
+    phone = models.CharField(null=False, max_length=16, blank=False, unique=True)

@@ -124,3 +124,17 @@ class UpdateJobApplicationView(APIView):
     def post(self, request):
         data = request.data
         print(data)
+
+
+
+class jobCatagariesView(ModelViewSet):
+    queryset = jobCatagaries.objects.all()
+    serializer_class = jobCatagaries
+    parser_classes = (FormParser, MultiPartParser)
+
+
+
+class catagaries_formView(ModelViewSet):
+    queryset = catagaries_form.objects.all()
+    serializer_class = catagaries_formSerializer
+    parser_classes = (FormParser, MultiPartParser)
