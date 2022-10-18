@@ -17,3 +17,11 @@ admin.site.register(
     [
         JobApplication
     ])
+admin.site.register(
+    [
+        jobCatagaries
+    ])
+admin.site.register(
+    [
+        catagaries_form
+    ])
