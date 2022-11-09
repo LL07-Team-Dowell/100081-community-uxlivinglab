@@ -141,4 +141,4 @@ def targeted_population(database, collection, fields, period):
   
     return res
 
-print(targeted_population("hr_hiring", "community", ["Name"], "life_time"))
+# print(targeted_population("hr_hiring", "community", ["Name"], "life_time"))
