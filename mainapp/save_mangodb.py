@@ -43,6 +43,8 @@ def get_event_id():
 
 
 def save_catagaries_form(catagaries_form):
+    print(catagaries_form)
+    print(catagaries_form['Individual_address'])
     url = "http://100002.pythonanywhere.com/"
     payload = json.dumps({
         "cluster": "hr_hiring",
@@ -54,8 +56,13 @@ def save_catagaries_form(catagaries_form):
         "command": "insert",
         "field": {
             "eventId":get_event_id(),
-            'catagaries_form_info' : catagaries_form
-
+            'Name': catagaries_form['Individual_name'],
+            'Email' : catagaries_form['email'],
+            'Address':catagaries_form['Individual_address'],
+            'city':catagaries_form['city'],
+            'state':catagaries_form['state'],
+            'country':catagaries_form['country'],
+            'phone':catagaries_form['phone']
         },
         "update_field": {
             "order_nos": 21
@@ -66,7 +73,6 @@ def save_catagaries_form(catagaries_form):
         'Content-Type': 'application/json'
     }
     response = requests.request("POST", url, headers=headers, data=payload)
-    print(response.text)
 
 import json
 import requests
@@ -135,4 +141,4 @@ def targeted_population(database, collection, fields, period):
   
     return res
 
-# print(targeted_population("hr_hiring", "community", ["Name"], "life_time"))
+print(targeted_population("hr_hiring", "community", ["Name"], "life_time"))
